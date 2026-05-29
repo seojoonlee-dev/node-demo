@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: #FFF0E3;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+hr {
+  margin-right: 0;
+}
+
+#view {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-areas: 
+    "header nodes editor";
+}
+
+#nodes {
+  display: flex;
+  grid-area: nodes;
+  position: relative;
+  padding-right: 10px;
+}
+
+#nodesItems {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+
+#line {
+  width: 100%;
+  color: #FFF0E3;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  grid-area: header;
+}
+
+#divider {
+  width: 100px
+}
+
+#addButton {
+  display: none;
+  padding-left: 5px;
+  border: 0;
+  color: #FFF0E3;
+  font-size: 16px;
+  background: 0;
+}
+
+#editor {
+  grid-area: editor;
+}
+
+.node {
+  display: flex;
+  align-items: center;
+  padding: 2px 10px 2px 6px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.node:hover {
+  background-color: #282828 !important;
+  overflow: visible;
+  max-width: 500px;
+  width: auto;
+  margin: 0;
+  z-index: 100;
+}
+
+.node:hover #addButton {
+  display: flex;
+}
+
+.button {
+  border: 0;
+  background: none;
+  color: #FFF0E3;
+  padding-left: 5px;
+  text-align: left;
+  flex: 1;
+}
+
+.headerButton {
+  width: 42px;
+  height: 42px;
+
+  background: none;
+  border: 0;
+  border-radius: 12px;
+  color: #FFF0E3;
+
+  padding: 8px;
+}
+
+.headerButton:hover {
+  background-color: #282828;
+}
+
+.popup {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  background-color: #1e1e1e;
+  border: 1px solid #FFF0E3;
+  border-radius: 12px;
+  color: #FFF0E3;
+  padding: 0;
+  z-index: 1000;
+  padding: 8px 12px;
+  
+  transform: translateX(150%);
+
+  transition: 
+    transform 0.4s cubic-bezier(0.3, 1, 0.5, 1);
+}
+
+.popup.open {
+  transform: translateX(0);
+
+  transition: 
+    transform 0.4s cubic-bezier(0.3, 1, 0.5, 1);
+}
+
+.popup-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.list {
+  width: 100%;
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  cursor: pointer; 
+  color: #FFF0E3;
+  padding: 0;
+  width: 10px;
+}

@@ -1,0 +1,20 @@
+services:
+  backend:
+    container_name: node-text-edit-backend
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./backend/notes:/app/notes
+    restart: always
+
+  frontend:
+    container_name: node-text-edit-frontend
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: always
